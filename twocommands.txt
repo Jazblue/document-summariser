@@ -1,0 +1,17 @@
+ 
+C:\Users\jason\doctalk-local\dynamodb_local>cd C:\Users\jason\doctalk-local\dynamodb_local
+
+java "-Djava.library.path=.\DynamoDBLocal_lib" -jar DynamoDBLocal.jar -sharedDb
+Initializing DynamoDB Local with the following configuration:
+
+to run the local dynamo db
+
+and to run the fastapi of where you can upload the pdfs and word
+
+C:\Users\jason\doctalk-local
+python -m uvicorn main:app --reload --port 8001
+
+This should start the both applications
+and to start the main file index.html
+and that we retrieve all the summarised documentation
+
