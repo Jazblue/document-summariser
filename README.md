@@ -1,5 +1,14 @@
 # document-summariser
 
+The purpose of this Document is to prove that I can use databases locally. I have used a dynamo db as port 8000
+this will store my summaries of which google gemini will write a shorten version of say the pdf or word document
+
+The main part i wanted to do is continously store the documents locally whilst the power is in the system
+
+The fast api (main.py) is where you can upload word or pdf documents and then this will store the documents to dynambo db. 
+
+
+
 
  create a directory like that at the end
 C:\Users\jason\doctalk-local\dynamodb_local>cd C:\Users\jason\doctalk-local\dynamodb_local
