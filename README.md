@@ -26,3 +26,40 @@ python -m uvicorn main:app --reload --port 8001
 This should start the both applications
 and to start the main file index.html
 and that we retrieve all the summarised documentation
+
+I did spend a good majority of the day on this. I had problems with Google Gen AI. it just wouldnt work. 
+
+And my final bit of coding was to create the table for dynamo db
+
+import boto3
+
+# Connect to local DynamoDB
+dynamodb = boto3.client(
+    "dynamodb",
+    endpoint_url="http://localhost:8000",
+    region_name="us-west-2",
+    aws_access_key_id="fakeMyKeyId",
+    aws_secret_access_key="fakeSecretAccessKey",
+)
+
+# Create table
+table_name = "DocumentSummaries"
+
+try:
+    dynamodb.create_table(
+        TableName=table_name,
+        KeySchema=[
+            {"AttributeName": "docId", "KeyType": "HASH"},  # Primary key
+        ],
+        AttributeDefinitions=[
+            {"AttributeName": "docId", "AttributeType": "S"},
+        ],
+        ProvisionedThroughput={
+            "ReadCapacityUnits": 5,
+            "WriteCapacityUnits": 5
+        }
+    )
+    print(f"Table {table_name} created successfully!")
+except dynamodb.exceptions.ResourceInUseException:
+    print(f"Table {table_name} already exists.")
+
