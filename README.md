@@ -34,3 +34,5 @@ Just remember to a create table for the dynamo db
 cd C:\Users\jason\doctalk-local
 python create_table.py
 
+I have now added the requirements.txt and the environment code .env
+
